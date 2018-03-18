@@ -7,7 +7,8 @@ public class Teller {
         this.cashSlot = cashSlot;
     }
 
-    public void withdraw(Account account, Money amount){
+    public void withdraw(Account account, Money amount) throws Exception{
+        account.debit(amount);
         cashSlot.dispense(amount);
     }
 }

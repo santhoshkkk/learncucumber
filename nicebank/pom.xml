@@ -74,7 +74,12 @@
             <scope>test</scope>
         </dependency>
 
-
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-webapp -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>9.4.8.v20171121</version>
+        </dependency>
 
     </dependencies>
     <build>

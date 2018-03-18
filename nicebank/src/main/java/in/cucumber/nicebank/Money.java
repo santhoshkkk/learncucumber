@@ -21,4 +21,16 @@ public class Money {
     }
 
 
+    public boolean greaterThan(Money amount) {
+        return this.rupees>amount.rupees || (this.rupees==amount.rupees&&this.paise>amount.paise);
+    }
+
+    public Money subtract(Money amount) {
+        int differenceInPaise = getInPaise() - amount.getInPaise();
+        return new Money(differenceInPaise/100, differenceInPaise%100);
+    }
+
+    private int getInPaise() {
+        return this.rupees*100+this.paise;
+    }
 }
