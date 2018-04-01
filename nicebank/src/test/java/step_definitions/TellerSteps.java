@@ -14,7 +14,7 @@ public class TellerSteps {
 
     @When("^I withdraw Rs\\.(\\d+)$")
     public void iWithdrawRs(int arg1) throws Throwable {
-        helper.getTeller(helper.getCashSlot()).withdraw(helper.getMyAccount(), new Money(arg1));
+        helper.getTeller().withdraw(helper.getMyAccount(), new Money(arg1));
     }
 
 }

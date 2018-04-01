@@ -8,7 +8,10 @@ public class MoneyConverter extends Transformer<Money> {
     public Money transform(String amount) {
         String[] numbers = amount.substring(2).split("\\.");
         int rupees = Integer.parseInt(numbers[1]);
-        int paise = Integer.parseInt(numbers[2]);
+        int paise = 0;
+        if (numbers.length > 2) {
+            paise = Integer.parseInt(numbers[2]);
+        }
         return new Money(rupees, paise);
     }
 }

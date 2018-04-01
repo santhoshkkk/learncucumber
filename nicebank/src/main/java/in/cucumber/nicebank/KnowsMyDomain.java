@@ -1,10 +1,20 @@
 package in.cucumber.nicebank;
 
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+
 public class KnowsMyDomain {
+    private EventFiringWebDriver webDriver;
     private Account account;
     private CashSlot cashSlot;
     private Teller teller;
 
+    public EventFiringWebDriver getWebDriver() {
+        if (null == webDriver) {
+            this.webDriver = new EventFiringWebDriver(new SafariDriver());
+        }
+        return webDriver;
+    }
 
     public Account getMyAccount() {
         if (null == account) {
@@ -21,9 +31,9 @@ public class KnowsMyDomain {
         return cashSlot;
     }
 
-    public Teller getTeller(CashSlot cashSlot) {
+    public Teller getTeller() {
         if (null == teller) {
-            teller = new Teller(cashSlot);
+            teller = new AtmUserInterface(this);
         }
 
         return teller;
